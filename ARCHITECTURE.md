@@ -109,7 +109,9 @@ Adaptadores previstos:
 - Performance Counters.
 - Windows Event Log y WHEA.
 - PowerShell controlado.
-- Ejecución de DISM, SFC, CHKDSK, Optimize-Volume y WinGet.
+- Ejecución de DISM, SFC, CHKDSK y Optimize-Volume.
+- Apertura de la ficha oficial de Store para instalación manual de PC Manager
+  (ADR-004); WinGet queda fuera del flujo de v1.
 - AppX/MSIX para detectar PC Manager.
 - Sistema de archivos y papelera.
 
@@ -117,6 +119,17 @@ WinSAT será una fuente opcional. Su ausencia o estado inválido no falla el
 diagnóstico.
 
 ### 5.5 Reportes
+
+En Fase 8, la opción 5 recibe `ITemporaryInventoryProvider` (solo agregados).
+`WindowsPreparedTemporaryInventoryProvider` usa la preparación nativa del
+usuario actual sin exponer rutas, mapa de candidatos ni runner a la TUI.
+La composición pública nunca habilita borrado. El reporte conserva directamente
+el `TemporaryInventory` original: identificador, fecha y contadores long/null,
+sin reconstruirlos desde double. El antiguo proveedor agregado se conserva
+para compatibilidad y fixtures, pero ya no compone la opción 5.
+
+El componente mutable sigue restringido a fixtures propias de Sandbox. Su
+aceptación no habilita producción ni acredita una nueva candidata de CLI.
 
 - Modelo independiente de la TUI.
 - Texto para lectura humana.
@@ -153,7 +166,7 @@ modificar: cada lote mutable exige confirmación dentro de WinMaint.
 - Las acciones mutables se ejecutan secuencialmente por defecto.
 - Cada acción declara recursos: CPU, RAM, disco, red, Store o reinicio.
 - El planificador evita combinaciones conflictivas.
-- PC Manager puede instalarse mientras corren diagnósticos R0.
+- La instalación manual de PC Manager queda bajo control del usuario en Store.
 - No se mezcla un prompt interactivo con un renderizador de progreso activo.
 
 ## 9. Motor de puntuación
@@ -211,7 +224,7 @@ No habrá base de datos.
 - Registro de eventos.
 - Elevación UAC.
 - Procesos nativos y cancelación.
-- Instalación/detección de PC Manager en entorno controlado.
+- Detección, apertura de PC Manager y apertura de su ficha oficial de Store.
 - Consola CMD y Windows Terminal.
 - Empaquetado self-contained.
 

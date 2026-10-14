@@ -241,9 +241,9 @@ La escritura temporal en disco estará desactivada por defecto en v1.
 - Detectar paquete instalado.
 - Verificar requisitos de sistema.
 - Pedir autorización expresa.
-- Instalar mediante el identificador de Microsoft Store `9PM860492SZD` usando
-  WinGet y la fuente `msstore`.
-- Abrir la ficha oficial si WinGet o Store no permiten instalar.
+- Abrir la ficha oficial de Microsoft Store `9PM860492SZD` cuando falte el
+  paquete; el usuario instala manualmente desde Store.
+- La instalación automática mediante WinGet queda fuera del alcance de v1.
 - Permitir abrir PC Manager después de instalar.
 - No automatizar controles internos sin una API pública documentada.
 

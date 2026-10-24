@@ -1,0 +1,18 @@
+[
+  {
+    "BankLabel": "BANK 0",
+    "DeviceLocator": "DIMM A",
+    "Manufacturer": "Fabricante anonimizado",
+    "Capacity": 8589934592,
+    "Speed": 2666,
+    "ConfiguredClockSpeed": 2400
+  },
+  {
+    "BankLabel": "BANK 1",
+    "DeviceLocator": "DIMM B",
+    "Manufacturer": null,
+    "Capacity": 8589934592,
+    "Speed": 2666,
+    "ConfiguredClockSpeed": null
+  }
+]

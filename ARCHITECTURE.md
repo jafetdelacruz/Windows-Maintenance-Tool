@@ -136,6 +136,12 @@ aceptación no habilita producción ni acredita una nueva candidata de CLI.
 - JSON versionado para depuración y futuras migraciones.
 - Redacción de identificadores sensibles antes de serializar.
 
+Desarrollo local posterior a rc.4: reportes 1.2 con evaluación `finalHealth`
+explícita y compartida por CLI/TXT/JSON. Los snapshots se conservan y una nueva
+captura no resuelve automáticamente hallazgos anteriores. Los lectores aceptan
+1.0/1.1 sin reinterpretar sus datos con reglas nuevas. Esto no renueva la
+aceptación de los binarios históricos ni habilita limpieza.
+
 Ruta predeterminada: `%ProgramData%\WinMaint\Reports`.
 
 ## 6. Ejecución segura de procesos
@@ -199,6 +205,15 @@ Los workloads son pequeños, acotados y reemplazables:
 Cada probe implementa precondiciones, timeout, cancelación y resultado parcial.
 El coordinador bloquea toda la prueba ante un hallazgo P0 incompatible.
 
+Desarrollo local rc.5-dev: CPU/RAM/lectura requieren fuente de seguridad, un
+diagnóstico nuevo antes de cada etapa y observador de RAM/energía durante carga.
+El presupuesto RAM no usa Baseline antiguo. La detención espera al workload y
+al observador; la telemetría térmica universal no está disponible en el adaptador
+Windows. Una consulta WHEA posterior sin marca previa no acredita comparación.
+La composición Windows 11 tuvo una verificación acotada bajo carga nativa y
+cancelación cooperativa durante CPU. La candidata final y las puertas de
+Windows 10/UAC/teclas/presentación siguen pendientes.
+
 ## 11. Persistencia mínima
 
 No habrá base de datos.
@@ -207,6 +222,12 @@ No habrá base de datos.
 - Estado pequeño de sesión para detectar una ejecución interrumpida.
 - Escritura atómica mediante archivo temporal y reemplazo.
 - Limpieza de archivos temporales al cerrar y recuperación en el siguiente inicio.
+
+El desarrollo posterior a rc.4 añade un journal específico de limpieza, separado
+del estado de estabilidad: inicio/intención/resultados/cierre con flush previo
+a mutación y recuperación sin reanudar. La CLI solo lee intentos incompletos y
+los incorpora al reporte; no registra un runner mutable. Ver ADR-005 para
+contrato, límites y aceptación abrupta acotada del laboratorio 0.9.1.
 
 ## 12. Pruebas
 

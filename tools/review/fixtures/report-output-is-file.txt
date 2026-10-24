@@ -1,0 +1,1 @@
+Synthetic fixture: this is a file, not a report output directory.

@@ -1,0 +1,16 @@
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-WHEA-Logger" />
+    <EventID>17</EventID>
+    <Level>3</Level>
+    <TimeCreated SystemTime="2026-01-02T03:04:05.0000000Z" />
+  </System>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Proveedor-Anonimizado" />
+    <EventID>1000</EventID>
+    <Level>2</Level>
+    <TimeCreated SystemTime="2026-01-01T00:00:00.0000000Z" />
+  </System>
+</Event>

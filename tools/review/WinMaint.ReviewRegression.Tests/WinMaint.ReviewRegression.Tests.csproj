@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <ProjectReference Include="..\..\..\src\WinMaint.Application\WinMaint.Application.csproj" />
+    <ProjectReference Include="..\..\..\src\WinMaint.Reporting\WinMaint.Reporting.csproj" />
+    <ProjectReference Include="..\..\..\src\WinMaint.Cli\WinMaint.Cli.csproj" />
+    <ProjectReference Include="..\WinMaint.ProcessFixture\WinMaint.ProcessFixture.csproj" ReferenceOutputAssembly="false" />
+    <None Include="..\TEST-PROCESS-HELPER.ps1" Link="TEST-PROCESS-HELPER.ps1" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\release\Invoke-CandidateProcess.ps1" Link="Invoke-CandidateProcess.ps1" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\release\Invoke-HashPinnedCandidateProcess.ps1" Link="Invoke-HashPinnedCandidateProcess.ps1" CopyToOutputDirectory="PreserveNewest" />
+    <Using Include="Xunit" />
+  </ItemGroup>
+  <Target Name="CopyProcessFixture" AfterTargets="Build">
+    <ItemGroup>
+      <ProcessFixture Include="..\WinMaint.ProcessFixture\bin\$(Configuration)\$(TargetFramework)\WinMaint.ProcessFixture.*" />
+    </ItemGroup>
+    <Error Condition="!Exists('..\WinMaint.ProcessFixture\bin\$(Configuration)\$(TargetFramework)\WinMaint.ProcessFixture.exe')" Text="The process fixture must be built in the same configuration as the tests." />
+    <Copy SourceFiles="@(ProcessFixture)" DestinationFolder="$(OutDir)process-fixture" />
+  </Target>
+</Project>

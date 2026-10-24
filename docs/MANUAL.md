@@ -1,12 +1,16 @@
-# WinMaint v1.0.0-rc.3 — guía breve
+# WinMaint v1 — guía breve (21 de octubre de 2026)
 
-Esta guía describe una candidata utilizada en validaciones locales. Esta
-actualización del repositorio público solo contiene documentación: no incluye
-el ejecutable, el comprobador ni reportes de equipos reales. Las rutas de ejemplo
-son ilustrativas. Consulta [STATUS.md](STATUS.md) para los pendientes actuales.
+Esta guía describe la candidata utilizada en validaciones locales. El repositorio
+incluye código fuente, pruebas y documentación, pero no publica un ejecutable
+oficial ni reportes de equipos reales. Las rutas de ejemplo son ilustrativas.
+Consulta [STATUS.md](STATUS.md) para los pendientes actuales.
 
 Esta es una candidata en validación, no una versión final. Funciona sin instalar
 .NET. El paquete incluye un ejecutable x64, esta guía y un comprobador opcional.
+
+El flujo R0 de `rc.5-dev` tiene aceptación local de diagnóstico, exportación e
+inventario, no de candidata final. La aceptación histórica de `rc.4` con
+`rc4-no-preamble-5` se conserva aparte. No se transfieren puertas entre binarios.
 
 ## Uso
 
@@ -47,7 +51,13 @@ de RAM o espacio libre son variaciones observadas, no una demostración de mejor
 - La puntuación no certifica el hardware. Los datos ausentes reducen la cobertura.
 - Requiere Windows 10 22H2 o Windows 11 x64. La candidata actual todavía requiere
   aceptación final en las consolas y sistemas documentados en Fase 7.
-- Windows 10 puede mostrar un aviso de fin de soporte estándar; no se presupone ESU.
+- En desarrollo `rc.5-dev` se añade un aviso de soporte Windows 10 separado de la
+  compatibilidad técnica. La inscripción ESU queda desconocida; ediciones LTSC
+  requieren consultar su ciclo específico. Los binarios anteriores no incluyen
+  este aviso.
+- En ese desarrollo, el uso puntual de RAM no acredita integridad física ni
+  presión sostenida. El resultado previo de Windows Memory Diagnostic es
+  evidencia parcial e histórica; WinMaint no lo inicia ni pide reiniciar.
 - El binario aún no tiene firma de editor. El SHA-256 permite identificar esta
   copia, no convierte al editor en una entidad verificada.
 
@@ -60,6 +70,11 @@ reanuda automáticamente. Los reportes parciales conservan lo guardado hasta el
 Si falla la escritura, revisa espacio y permisos o usa `--report-dir` con otra
 carpeta. Conserva los archivos existentes. No borres el estado de una sesión
 interrumpida para simular una prueba completada.
+
+El desarrollo también detecta registros incompletos de limpieza al arrancar:
+distingue eliminaciones verificadas, operaciones inciertas y no intentadas.
+No reanuda borrados. Si el registro está corrupto, no supone que los archivos
+restantes están intactos. La limpieza de producción sigue bloqueada.
 
 ## Comandos útiles
 
@@ -75,6 +90,24 @@ El último comando crea `reporte.summary.txt` sin repetir diagnósticos; rechaza
 un resumen ya existente en vez de sobrescribirlo. Los modos de ejecución se
 usan de uno en uno. `--no-ansi` permite trabajar con consolas de texto simple.
 
-Para verificar el paquete, haz clic derecho en `VALIDAR-CANDIDATA.cmd` y elige
-**Ejecutar como administrador**. Ejecuta comprobaciones de diagnóstico y
-reportes, sin prueba de carga ni mantenimiento. Guarda su `RESULTADO.json`.
+Para identificar el conjunto local aceptado, utiliza el selector
+`tools/release/SHOW-CURRENT-ACCEPTANCE.ps1`: coteja los hashes sin abrir la
+candidata ni iniciar Sandbox. La selección actual `cli-rc5dev-review-a3` obtuvo
+32/32: cuatro reportes funcionales, once rechazos esperados e inventarios vacío
+y no vacío sin borrar. La selección histórica rc.4 conserva sus cuatro hashes
+y resultado 13/13; no uses su comprobador original obsoleto. No hace falta
+repetir ninguno de esos lotes sin cambios pertinentes.
+
+La candidata posterior `rc.5` tiene paquete independiente y aceptación R0
+Windows 11 propia; no sustituye aún la selección anterior ni habilita limpieza.
+Para la validación pendiente en PC 2 se prepara una carpeta portátil con
+`VALIDATE.cmd`: ejecutar como administrador y devolver completa, incluida
+`RESULTS`. No requiere instalar .NET ni ejecutar carga. Los resultados son
+privados; no deben subirse a GitHub. Su validación automática no sustituye
+las puertas interactivas de UAC, presentación y teclas.
+
+Un paquete nuevo necesita verificación y aceptación propias. En desarrollo,
+`--diagnostic` y `--report` devuelven 4 si la exportación solicitada no termina;
+0 acredita la exportación, no que toda la información ni todo el hardware
+estén disponibles o saludables. JSON y TXT deben compartir identificador de
+exportación; un TXT anterior no demuestra guardado completo.

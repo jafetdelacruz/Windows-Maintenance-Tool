@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>WinMaint.CleanupLab</AssemblyName>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <PublishTrimmed>false</PublishTrimmed>
+    <Version>0.2.0</Version>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="..\..\..\src\WinMaint.Infrastructure.Win\WinMaint.Infrastructure.Win.csproj" /></ItemGroup>
+</Project>

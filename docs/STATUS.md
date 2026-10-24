@@ -1,47 +1,46 @@
-# Estado actual — 14 de octubre de 2026
+# Estado actual — 24 de octubre de 2026
 
-## Qué está aprobado
+## Aceptaciones registradas
 
-- Fases 0–7: aceptadas para el ejecutable rc.1 y su alcance de solo lectura,
-  estabilidad opcional y apertura autorizada de PC Manager/Store.
-- rc.2: corrección WHEA comprobada en Windows 11; no hereda la matriz de rc.1.
-- rc.3: inventario de temporales R0 aceptado. No elimina archivos del equipo.
-- Fase 8 sigue abierta. Laboratorio 0.8.0: 27/27 controles aprobados y repetidos
-  después de recrear Sandbox, con el mismo ejecutable. Pruebas automáticas: 169
-  después de la integración R0 al CLI.
-- Se comprobaron inventario, exclusiones, confirmación, cancelación parcial,
-  archivos ocupados/cambiados, enlaces, identidad de ancestros y reportes de
-  resultados inciertos. Las mutaciones fueron únicamente sobre archivos ficticios.
+- Fases 0–7: aceptadas para el alcance de solo lectura, estabilidad opcional y
+  apertura autorizada de Microsoft PC Manager o su ficha oficial de Store.
+- La candidata `rc.5` obtuvo 501/501 pruebas automatizadas, 32/32 controles R0
+  en Windows Sandbox 11 y 15/15 en Windows 10 22H2 x64. Estas aceptaciones
+  corresponden a esa candidata y no se transfieren a otros binarios.
+- La prueba de estabilidad en Windows 10 completó diez etapas. No acredita
+  hardware en general ni comprueba cancelación.
+- La presentación inicial en Windows 11 fue revisada en CMD y Windows Terminal;
+  el menú y los acentos se ven correctamente, también en pantalla completa.
+- El laboratorio de limpieza con archivos ficticios pasó 100/100 controles,
+  repetidos en una VM recreada. Esto valida el laboratorio; la limpieza de
+  producción continúa bloqueada.
 
-## Evidencia preservada
+## Límites actuales
 
-Las evidencias detalladas y sus hashes se conservan localmente, fuera de esta
-publicación pública. No se incluyen reportes, capturas, rutas personales ni
-identificadores de equipos o sesiones. Este documento es un resumen de avance,
-no un paquete de evidencia reproducible ni una distribución del ejecutable.
-Los reportes Partial son intencionales: incluyen un fallo inyectado cuyo resultado
-queda sin verificar, no se presenta como ausencia de cambios.
+Fase 8 sigue abierta. No se habilitan borrados en equipos reales, reparación de
+Windows, optimización, reinicio automático ni instalación automática de PC
+Manager. La opción de temporales presenta un inventario. Los registros de
+recuperación informan sobre operaciones inciertas y nunca reanudan una limpieza.
 
-## Qué sigue
+La candidata todavía no tiene aceptación final. Quedan puertas interactivas del
+paquete exacto, incluidas UAC y teclas de cancelación en Windows 11. La prueba de
+cancelación en el segundo equipo con Windows 10 se aplazó por disponibilidad;
+su aceptación R0 existente permanece acotada y no se repite sin un cambio
+pertinente.
 
-1. Integración R0 implementada y verificada en desarrollo: opción 5 recibe solo
-   inventario agregado, sin rutas ni ejecutor. Una sesión sin diagnóstico completado
-   no publica inventario. Dos consultas del menú reutilizan un diagnóstico y
-   generan inventarios distintos; JSON/TXT revisados, sin eliminaciones.
-2. Empaquetar con nueva identidad y aceptar el flujo del ejecutable resultante.
-3. Revisar la futura habilitación y probar el ejecutable final en Windows 10/11.
-   La aceptación del laboratorio no acepta automáticamente un binario nuevo.
+## Próximos pasos
 
-La validación final en Windows 10 está aplazada por disponibilidad del entorno.
-No se elimina esa puerta de aceptación ni se cierra Fase 8. No se habilitan
-reinicios automáticos, reparación, optimización ni limpieza real.
+1. Continuar en Windows 11 las comprobaciones interactivas pendientes con el
+   paquete exacto de candidata y sus puertas de seguridad.
+2. Revisar los resultados antes de decidir si la candidata cumple el alcance
+   previsto. Un resultado de laboratorio no habilita limpieza de producción.
+3. Si hay cambios que afecten al ejecutable, repetir solo las aceptaciones
+   pertinentes para el nuevo paquete.
 
-Los binarios publicados y sus paquetes de evidencia son inmutables. El código
-de desarrollo posterior a rc.3 todavía no es una nueva candidata publicada.
+## Repositorio y evidencia
 
-## Alcance del repositorio público
-
-Esta actualización publica solo documentación revisada. El código, la
-configuración de desarrollo, los binarios y las pruebas permanecen locales.
-Las candidatas mencionadas corresponden a validaciones locales; no se ofrecen
-como descargas públicas en esta actualización.
+Este repositorio contiene ahora código fuente, pruebas, scripts de laboratorio
+y documentación. No incluye una distribución binaria oficial. Los informes
+detallados, capturas, identificadores de sesiones y rutas de usuario se guardan
+localmente y no se publican; los resultados anteriores se resumen aquí sin
+datos que identifiquen equipos o cuentas.

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <Version>1.0.0-rc.5</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Company>Jafet</Company>
+    <Product>WinMaint</Product>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(EnablePhaseFourLab)' == 'true'">
+    <DefineConstants>$(DefineConstants);PHASE4_LAB</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(PhaseSevenCandidate)' == 'true'">
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(EnablePhaseFourLab)' != 'true'">
+    <Compile Remove="PhaseFourLabShell.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WinMaint.Application\WinMaint.Application.csproj" />
+    <ProjectReference Include="..\WinMaint.Domain\WinMaint.Domain.csproj" />
+    <ProjectReference Include="..\WinMaint.Infrastructure.Win\WinMaint.Infrastructure.Win.csproj" />
+    <ProjectReference Include="..\WinMaint.Reporting\WinMaint.Reporting.csproj" />
+  </ItemGroup>
+
+</Project>

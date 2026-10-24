@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "accepted-set-2.0",
+  "selectionId": "cli-rc5dev-review-a3",
+  "scope": "Windows 11 packaged R0 only. No workload, cleanup, visual, Windows 10 or final release acceptance.",
+  "productionEnabled": false,
+  "expected": { "passed": 32, "total": 32, "functionalReports": 4, "rejectedReports": 11, "inventoriesPerMenu": 2, "externalActions": 0, "deletedFiles": 0 },
+  "sourceIdentity": "Private frozen source snapshot; not reproduced by a public documentation commit",
+  "historicalSelection": "tools/release/accepted-set-rc4-no-preamble-5.json",
+  "artifacts": [
+    { "role": "executable", "path": "artifacts/release/cli-rc5dev-review-a3/WinMaint.Cli.exe", "sha256": "A06DD77A3D9DE52D7C54FBE3B5DE5704D1268FC8925DD7A7395F7A5F7AEB3A05" },
+    { "role": "verifier", "path": "artifacts/release/cli-rc5dev-review-a3/verifier/WinMaint.EvidenceVerifier.exe", "sha256": "7363B84F9B800C9B59FB0EB80F94F1F7E33061EF1ED3B4E38AC6D8B77F8C6A10" },
+    { "role": "verification-script", "path": "artifacts/release/cli-rc5dev-review-a3/VERIFY-REVIEW-CANDIDATE.ps1", "sha256": "86D4AE4072ED7EDBB891A10563F855AAAD350AD8CB48545D87633EEA1224C36D" },
+    { "role": "process-helper", "path": "artifacts/release/cli-rc5dev-review-a3/Invoke-CandidateProcess.ps1", "sha256": "EE48B8CD878A6F3CA89877E0BFD741C50226062107F26357CE6B438DC48C83DF" },
+    { "role": "hash-wrapper", "path": "artifacts/release/cli-rc5dev-review-a3/Invoke-HashPinnedCandidateProcess.ps1", "sha256": "B4E1B7DE9639736BF1C9496C2140AB7F99DE91A5D97AA6A4D006F716CF48FC14" },
+    { "role": "sandbox-profile", "path": "artifacts/release/cli-rc5dev-review-a3/profile.wsb", "sha256": "05BED1847FD0369B7148FF1DCCA03C97CE537FA2F9B13D80FF2BBCBB559D47EB" },
+    { "role": "package-manifest", "path": "artifacts/release/cli-rc5dev-review-a3/package-manifest.json", "sha256": "5F94556787A198D174A458C4A757BFD65E8CE0096E2232A2813F0AE8F76CC8E2" },
+    { "role": "vm-result", "path": "artifacts/verification/cli-rc5dev-review-a3-inbox/c2bac7d2f3c543c7ab40645cf237f6fb/RESULTADO.json", "sha256": "B36D82A8B01A405B0D007CE6784EA61291C4A8968A48F83896BD6D7E46C50E60" },
+    { "role": "host-audit", "path": "artifacts/verification/cli-rc5dev-review-a3-host-audit.json", "sha256": "585B7036B24CF2686FDF0AE849102AFCFB4C370097921D97B6F6802ED417E23B" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "accepted-set-1.0",
+  "selectionId": "rc4-no-preamble-5",
+  "scope": "Windows 11 R0 menu/report flow; not mutable cleanup, final visual acceptance or Windows 10 acceptance",
+  "expected": { "passed": 13, "total": 13, "inventories": 2, "externalActions": 0, "deletedFiles": 0 },
+  "sourceIdentity": "Private local source not reproduced by the public documentation commit",
+  "artifacts": [
+    { "role": "executable", "path": "artifacts/lab/rc4-verifier-5/WinMaint.Cli.exe", "sha256": "E57B5EBF1F4EC153B4A508B792B82A8A00995F52DC358B3E48D8095B0ECA43AC" },
+    { "role": "verifier", "path": "artifacts/lab/rc4-verifier-5/VERIFY-CANDIDATE.ps1", "sha256": "801006B5E55447EC18846428FEE4E70C9B5B972F3A5C802BA678AF6746E66D10" },
+    { "role": "process-helper", "path": "artifacts/lab/rc4-verifier-5/Invoke-CandidateProcess.ps1", "sha256": "EE48B8CD878A6F3CA89877E0BFD741C50226062107F26357CE6B438DC48C83DF" },
+    { "role": "sandbox-profile", "path": "tools/lab/WinMaint-Rc4-Verification5.wsb", "sha256": "54A3C4B5E1B3C3E225EA789C4E8E896897551253E81EBDF5CAE44323A5B49F24" }
+  ]
+}

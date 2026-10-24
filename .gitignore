@@ -4,6 +4,12 @@ obj/
 artifacts/
 publish/
 
+# Local acceptance evidence and machine-specific transfer packages
+docs/verification/
+docs/reviews/
+docs/handoffs/
+tools/lab/phase5-pc2/
+
 # IDE
 .vs/
 .vscode/

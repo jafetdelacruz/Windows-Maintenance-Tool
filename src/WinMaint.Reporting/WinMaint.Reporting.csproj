@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\WinMaint.Application\WinMaint.Application.csproj" />
+    <ProjectReference Include="..\WinMaint.Domain\WinMaint.Domain.csproj" />
+  </ItemGroup>
+</Project>

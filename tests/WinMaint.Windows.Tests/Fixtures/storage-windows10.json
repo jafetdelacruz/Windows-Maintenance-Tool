@@ -1,0 +1,16 @@
+[
+  {
+    "FriendlyName": "SSD anonimizado",
+    "MediaType": "SSD",
+    "BusType": "SATA",
+    "HealthStatus": "Healthy",
+    "OperationalStatus": "OK",
+    "Size": 512110190592,
+    "Temperature": null,
+    "Wear": null,
+    "PowerOnHours": 4200,
+    "ReadErrorsTotal": null,
+    "WriteErrorsTotal": null,
+    "ReliabilityAvailable": true
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "FriendlyName": "NVMe anonimizado",
+    "MediaType": "SSD",
+    "BusType": "NVMe",
+    "HealthStatus": "Healthy",
+    "OperationalStatus": "OK",
+    "Size": 1024209543168,
+    "Temperature": 37,
+    "Wear": 2,
+    "PowerOnHours": 1800,
+    "ReadErrorsTotal": 0,
+    "WriteErrorsTotal": 0,
+    "ReliabilityAvailable": true
+  }
+]

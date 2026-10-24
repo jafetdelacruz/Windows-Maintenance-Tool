@@ -1,0 +1,24 @@
+<Configuration>
+  <VGpu>Disable</VGpu>
+  <Networking>Disable</Networking>
+  <AudioInput>Disable</AudioInput>
+  <VideoInput>Disable</VideoInput>
+  <PrinterRedirection>Disable</PrinterRedirection>
+  <ClipboardRedirection>Disable</ClipboardRedirection>
+  <MemoryInMB>4096</MemoryInMB>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\Path\To\Windows-Maintenance-Tool\artifacts\lab\phase8-recursive</HostFolder>
+      <SandboxFolder>C:\WinMaintPhase8Cleanup</SandboxFolder>
+      <ReadOnly>true</ReadOnly>
+    </MappedFolder>
+    <MappedFolder>
+      <HostFolder>C:\Path\To\Windows-Maintenance-Tool\artifacts\verification\phase8-recursive-inbox</HostFolder>
+      <SandboxFolder>C:\WinMaintLabOutput</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>powershell.exe -NoProfile -Command "Start-Process -FilePath 'C:\Windows\System32\cmd.exe' -ArgumentList '/c C:\WinMaintPhase8Cleanup\Run-Phase8-Integration-Lab.cmd' -Verb RunAs"</Command>
+  </LogonCommand>
+</Configuration>
